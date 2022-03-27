@@ -1,0 +1,67 @@
+#Buatlah satu program barang dengan ketentuan minimal sebagai berikut:
+#1.Gunakan list untuk menampung barang yang diinput
+#2.Program dapat menambahkan barang
+#3.Program dapat menghapus barang
+#4.Program dapat mengedit barang
+#5.Program dapat menampilkan semua barang
+#6.Program dapat mengetahui apakah barang sudah ada dalam list atau belum
+#7.Program dapat menampilkan index barang tertentu
+
+pilihan= 0
+Menu =["sendok","piring"]
+while pilihan <= 9:
+    print("_ _ _ _ _ _ _")
+    print ("1. mencetak list")
+    print ("2. menambahkan nama kedalam list")
+    print ("3. menghapus nama dalam list")
+    print ("4. mengubah data dalam list")
+    print ("5. index barang yang ingin di tampilkan")
+    print ("6. mencari barang yang ingin di cari")
+    print ("7. keluar")
+    menu_item = int(input("pilih menu: "))
+    if menu_item == 1:
+        current = 0
+        if len(Menu) > 0:
+            while current < len(Menu):
+                print (current, ".", Menu[current])
+                current = current + 1
+        else:
+            print("list kosong")
+            
+    elif menu_item == 2 :
+            name = input("masukkan nama list: ")
+            Menu.append(name)
+            print(Menu)
+            
+    elif menu_item == 3 :
+        del_name = input("nama yang ingin di hapus: ")
+        if del_name in Menu:
+            item_number = Menu.index(del_name)
+            del Menu[item_number]
+            print(Menu)
+
+        else:
+            print (del_name, "tidak di temukan")
+        
+    elif menu_item == 4 :
+        old_name = input("nama apa yang ingin di ubah: ")
+
+        if old_name in Menu:
+            item_number = Menu.index(old_name)
+            new_name = input("nama baru: ")
+            Menu[item_number] = new_name
+            print(Menu)
+        else:
+           print (old_name, "tidak di temukan")
+
+    elif menu_item == 5 :
+        print(Menu)
+        nama_yang_ingin_ditampilkan =input("masukkan nama yang ingin ditampilkan :")
+        print(nama_yang_ingin_ditampilkan, "berada pada index", Menu.index(nama_yang_ingin_ditampilkan))
+
+    elif menu_item == 6 :
+        nama_yang_ingin_dicari =input("masukkan nama yang ingin di cari :")
+        if nama_yang_ingin_dicari in Menu:
+            print("nama ini terdapat dalam Menu")
+        elif nama_yang_ingin_dicari not in Menu:
+            print("nama ini tidak terdapat dalam Menu")
